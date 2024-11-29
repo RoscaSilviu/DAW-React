@@ -7,9 +7,9 @@ function SignInSignupWithLocalStorage() {
    const email = useRef();
    const password = useRef();
    const [showHome, setShowHome] = useState(false);
-   const [showSignUp, setShowSignUp] = useState(false); // Controlam paginile Login / SignUp
+   const [showSignUp, setShowSignUp] = useState(false); 
    const localSignUp = localStorage.getItem("signUp");
-   const users = JSON.parse(localStorage.getItem("users")) || []; // Get all users
+   const users = JSON.parse(localStorage.getItem("users")) || []; 
 
    useEffect(() => {
       if (localSignUp) {
@@ -19,12 +19,10 @@ function SignInSignupWithLocalStorage() {
 
    const handleClick = () => {
       if (name.current.value && email.current.value && password.current.value) {
-         // Check if user already exists
          const userExists = users.find(user => user.email === email.current.value);
          if (userExists) {
             alert("User already exists! Please log in.");
          } else {
-            // Add new user to the users array
             const newUser = {
                name: name.current.value,
                email: email.current.value,
